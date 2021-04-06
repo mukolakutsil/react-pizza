@@ -1,17 +1,20 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 
-const Categories = ({ arr, onClickItem }) => {
-  const [index, setIndex] = useState(0);
+const Categories = ({ arr }) => {
+  const [indexElem, setIndex] = useState(0);
 
+  const onSelectItem = (index) => {
+    setIndex(index);
+  };
   return (
     <div className="categories">
       <ul>
         {arr &&
-          arr.map((name, indexElem) => {
+          arr.map((name, index) => {
             return (
               <li
                 className={indexElem === index ? "active" : ""}
-                onClick={() => setIndex(indexElem)}
+                onClick={() => onSelectItem(index)}
                 key={`${name}_${indexElem}`}
               >
                 {name}
