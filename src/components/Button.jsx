@@ -1,5 +1,6 @@
-import classNames from "classnames";
 import React from "react";
+import classNames from "classnames";
+import PropTypes from "prop-types";
 
 const Button = ({ outline, children, className }) => {
   return (
@@ -11,6 +12,10 @@ const Button = ({ outline, children, className }) => {
       {children}
     </button>
   );
+};
+
+Button.propTypes = {
+  onClick: PropTypes.func,
 };
 
 export default Button;
