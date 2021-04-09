@@ -10,13 +10,17 @@ export default function Home({ items }) {
     "Острі",
     "Закриті",
   ];
-  const poputItem = ["популярності", "ціні", "алфавіту"];
+  const popupItem = [
+    { name: "популярності", type: "popular" },
+    { name: "ціні", type: "price" },
+    { name: "алфавіту", type: "alphabet" },
+  ];
 
   return (
     <div className="container">
       <div className="content__top">
         <Categories arr={categoriesItem} />
-        <SortPopup items={poputItem} />
+        <SortPopup items={popupItem} />
       </div>
       <h2 className="content__title">Всі піци</h2>
       <div className="content__items">
