@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 
-const Categories = ({ arr }) => {
+const Categories = memo(({ arr, onClickItem }) => {
   const [indexElem, setIndex] = useState(0);
 
   const onSelectItem = (index) => {
     setIndex(index);
+    onClickItem(index);
   };
   return (
     <div className="categories">
@@ -24,39 +25,6 @@ const Categories = ({ arr }) => {
       </ul>
     </div>
   );
-};
-
-// class Categories extends Component {
-//   state = {
-//     activeItem: 0,
-//   };
-
-//   onSelectItem = (index) => {
-//     this.setState({
-//       activeItem: index,
-//     });
-//   };
-
-//   render() {
-//     const { arr } = this.props;
-//     return (
-//       <div className="categories">
-//         <ul>
-//           {arr.map((name, index) => {
-//             return (
-//               <li
-//                 className={this.state.activeItem === index ? "active" : ""}
-//                 onClick={() => this.onSelectItem(index)}
-//                 key={`${name}_${index}`}
-//               >
-//                 {name}
-//               </li>
-//             );
-//           })}
-//         </ul>
-//       </div>
-//     );
-//   }
-// }
+});
 
 export default Categories;
